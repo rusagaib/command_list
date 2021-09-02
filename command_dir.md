@@ -45,6 +45,7 @@ mv -v dir1/* ~/dir/dir2
 rm -v dir1
 rm -rf dir1
 rm other.txt
+rm -rf .git
 ----------------------------
 🎏 create dummy.dat on dir
 touch dummy{1..5}
