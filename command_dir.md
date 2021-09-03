@@ -4,7 +4,7 @@
 .tar.gz: tar -xzf rebol.tar.gz
 .tar:
 .rar:
-.zip:
+.zip: unzip filename
 .iso:
 -----------------------------
 📦Remove-packages
