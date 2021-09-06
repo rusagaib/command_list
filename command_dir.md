@@ -68,3 +68,7 @@ lsof -i :8080 | grep PID
 kill -9 <PID>
 kill $(lsof -t -i:port)
 sudo grep psk= /etc/NetworkManager/system-connections/*
+systemctl list-unit-files '*mariadb*' '*mysql*'
+sudo systemctl disable mysql
+sudo update-rc.d apache2 disable
+systemctl disable postgresql
