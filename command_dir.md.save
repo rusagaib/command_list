@@ -1,8 +1,4 @@
 -----------------------------
-📦Python virtualenv
-python3 -m venv env
-virtualenv env
------------------------------
 📦Install-packages
 .deb: sudo dpkg -i name_package || sudo apt install name_package
 .tar.gz: tar -xzf rebol.tar.gz
@@ -65,8 +61,6 @@ lsusb
 lspci
 pwd
 ls -a
-sudo nano /etc/pulse/daemon.conf 
-pulseaudio --kill
 🎏 Network 
 lsof -i
 lsof -i :8080
@@ -75,14 +69,7 @@ kill -9 <PID>
 kill $(lsof -t -i:port)
 sudo grep psk= /etc/NetworkManager/system-connections/*
 systemctl list-unit-files '*mariadb*' '*mysql*'
+
 sudo systemctl disable mysql
 sudo update-rc.d apache2 disable
 systemctl disable postgresql
------------------------------
-🎏 Git command
-git init
-git add .
-git commit -m "ayo!"
-git branch -M main
-git remote add origin http://somegitrepos.git
-git push -u origin main
