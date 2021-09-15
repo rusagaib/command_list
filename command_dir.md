@@ -31,20 +31,27 @@ delete: ctrl-k
 undo: alt-u
 redo: alt-e
 search: ctrl-w
----------------------------
+-----------------------------
+🎏 tmux scroll-mode/select/copy-paste
+scroll-mode: ctrl+b, page-up
+copy-mode: ctrl+b, [
+mark-mode: ctrl+space
+copy: ctrl+w
+paste: ctrl+b, ]
+-----------------------------
 🍕 make new dir  
 mkdir dir
----------------------------
+-----------------------------
 🍕 rename dir
 mv notebook_jep/ notebook-jep
----------------------------
+-----------------------------
 🍕 duplicate or backup dir 
 🍕 (But make a new dir first!!!)
 cp -a dir1/. ~/dir/dir2
----------------------------
+-----------------------------
 🍕 move all * to other dir
 mv -v dir1/* ~/dir/dir2
----------------------------
+-----------------------------
 🍕 remove dir or intance
 rm -v dir1
 rm -rf dir1
@@ -71,6 +78,8 @@ pulseaudio --kill
 lsof -i
 lsof -i :8080
 lsof -i :8080 | grep PID
+sudo lsof -i tcp:3000 
+ps aux | grep -i <option_app>
 kill -9 <PID>
 kill $(lsof -t -i:port)
 sudo grep psk= /etc/NetworkManager/system-connections/*
@@ -86,3 +95,4 @@ git commit -m "ayo!"
 git branch -M main
 git remote add origin http://somegitrepos.git
 git push -u origin main
+
