@@ -32,12 +32,13 @@ undo: alt-u
 redo: alt-e
 search: ctrl-w
 -----------------------------
-🎏 tmux scroll-mode/select/copy-paste
+🎏 tmux scroll-mode/select/copy-paste/exit :q
 scroll-mode: ctrl+b, page-up
 copy-mode: ctrl+b, [
 mark-mode: ctrl+space
 copy: ctrl+w
 paste: ctrl+b, ]
+tmux source-file ~/.tmux.conf
 -----------------------------
 🍕 make new dir  
 mkdir dir
