@@ -252,6 +252,12 @@ touch dummy{1..5}
 ---------------------------
 🎏 ~Common
 
+Change interface
+TTY
+> ctrl+alt+F3
+GUI
+> ctrl+alt+F7
+
 group
 > less /etc/group
 > usermod -aG <name-group> $USER
@@ -284,6 +290,10 @@ other common command:
 > ls -ltr
 > sudo nano /etc/pulse/daemon.conf 
 > pulseaudio --kill
+
+Disk command status:
+> sudo fdisk -l 
+> lsblk 
 
 CWEB image
 > cweb for compresing some image-webp
