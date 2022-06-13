@@ -294,6 +294,7 @@ other common command:
 Disk command status:
 > sudo fdisk -l 
 > lsblk 
+> df -h
 
 CWEB image
 > cweb for compresing some image-webp
