@@ -1,5 +1,6 @@
 -----------------------------
 🎏~nano 
+
 *open-file/save/exit/minimize
 nano name-files.txt
 save: ctrl-o
@@ -7,6 +8,7 @@ exit: ctrl-x
 minimz: ctrl-z
 
 *select/copy-paste/delete/undo-redo/search
+
 select: alt-m-a
 copy: alt-6
 paste: ctrl-u
@@ -17,11 +19,14 @@ search: ctrl-w
 
 -----------------------------
 🎏 ~tmux 
+
 ENV
+
 tmux source-file ~/.tmux.conf
 scroll-mode/select/copy-paste/exit :q
 
 NAV
+
 scroll-mode: C-a+page-up (exit: q)
 copy-mode: C-a+[
 mark-mode: C-a+space
@@ -29,6 +34,7 @@ copy: C-w
 paste: C-a+]
 
 MISC
+
 move-between panes: C-a+<arrow keys>
 move-to next window: C-a+n
 move-to prev window: C-a+p
@@ -50,6 +56,7 @@ split-panes(HORIZON): C-a+"
 
 -----------------------------
 🎏~ATOM
+
 atom-toggle-gittab: ctrl-shift-9
 atom-minim-treeview:ctrl-k and ctrl-b
 atom-toggle-treeview: ctrl-\
@@ -62,23 +69,26 @@ atom-move focus (panes): ctrl-k and ctrl-left/right
 
 -----------------------------
 📦~Python virtualenv
+
 python3 -m venv env
 virtualenv env
 pip freeze > requirements.txt
 
 -----------------------------
 📦~Docker
+
 *ENV for pg
-docker run -d \
--p <port-to-bind>:<port> \
---name <name-image> \
--e POSTGRES_USER=<user-name> \
--e POSTGRES_PASSWORD=<password> \
--e POSTGRES_DB=<name-db> \
--v $pwd/<name-dir>/init.sql:/docker-entrypoint-initdb.d/init.sqp \
-postgres
+> docker run -d \
+> -p port-to-bind:port \
+> --name name-image \
+> -e POSTGRES_USER=user-name \
+> -e POSTGRES_PASSWORD=password \
+> -e POSTGRES_DB=name-db \
+> -v $pwd/name-dir/init.sql:/docker-entrypoint-initdb.d/init.sqp \
+> postgres
 
 *ENV docker network for pg 
+
 docker run -d \
 -p 5432:5432 \
 --name todo-postgres \
@@ -90,29 +100,29 @@ docker run -d \
 postgres
 
 *start docker container by images
-docker run <name-image>
+docker run name-image
 
 *start docker container (detach/backgroud)
-docker run -d <name-image>
+docker run -d name-image
 
 *start docker container with binding port and (detach)
-docker run -d -p <port-id-tobind:port-id> <name-image>
+docker run -d -p port-id-tobind:port-id name-image
 
 *start docker container with name,portbinding,detach
-docker run -d -p <port-id-tobind:port-id> \
---name <init-container-name> \
-<name-image:w-optional-version>
+docker run -d -p port-id-tobind:port-id \
+--name init-container-name \
+name-image:w-optional-version
 
 *stop/restart running a docker container
-docker stop <container-id>
-docker start <container-id>
+docker stop container-id
+docker start container-id
 
 *show realtime logs on running container
-docker logs -f <container-id> 
+docker logs -f container-id 
 
 *print logs docker container
-docker logs <container-id>
-docker logs <container-name>
+docker logs container-id
+docker logs container-name
 
 *look some docker container on running..
 docker ps
@@ -124,22 +134,23 @@ docker ps -a
 docker images
 
 *login to a docker container
-docker exec -it <container-name> bash
+docker exec -it container-name bash
 
 *download some images visit (https://hub.docker.com)
-docker pull <name-image>
+docker pull name-image
 
 *delete docker image
-docker rmi <name-image>
+docker rmi name-image
 
 *delete docker container
-docker rm <container-id>
+docker rm container-id
 
 *show docker-container mem usange
 docker ps -q | xargs  docker stats --no-stream
 
 -----------------------------
 📦~Php env
+
 sudo add-apt-repository ppa:ondrej/php
 sudo apt install php7.4
 sudo apt install curl php-cli php-mbstring git unzip
@@ -150,6 +161,7 @@ dpkg -l | grep php | tee packages.txt
 
 -----------------------------
 📦~Go-lang
+
 wget https://go.dev/dl/go1.15.linux-amd64.tar.gz
 wget https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.15.linux-amd64.tar.gz
@@ -163,44 +175,70 @@ require github.com/lib/pq v1.9.0
 go mod tidy
 
 -----------------------------
+📦~repo-key list
+
+ls /etc/apt/sources.list.d
+sudo rm -i /etc/apt/souces.list.d/ppa_name.list
+
+-----------------------------
 📦~Install-packages
+
 .deb: sudo dpkg -i name_package || sudo apt install name_package
 .tar.gz: tar -xzvf rebol.tar.gz
 .tar:
 .rar:
-.zip: unzip filename
+.zip: unzip filename 
+.zip: unzip filename.zip -d /new-dir
 .iso:
 
 -----------------------------
 📦~Remove-packages
+
 list package: sudo apt list --installed | grep grid
 remove package: sudo apt remove program_name
 list package (.deb): dpkg -l | grep package
 remove package(.deb): dpkg -r name_package
-sudo apt-get purge <name-app>*
-sudo apt-get purge --auto-remove <name-app>*
+sudo apt-get purge name-app*
+sudo apt-get purge --auto-remove name-app*
 
 -----------------------------
-🎏 ~react-native reload-metro:r
+🎏 ~react-native 
+
+reload-metro:r
 start-metro: npx react-native start
 start-emu: npx react-native run-android
 emu_conf: ctrl+m
 
 -----------------------------
 🍕 make new dir  
+
 mkdir dir
+
 -----------------------------
 🍕 rename dir
+
 mv notebook_jep/ notebook-jep
+
 -----------------------------
 🍕 duplicate or backup dir 
 🍕 (But make a new dir first!!!)
+
 cp -a dir1/. ~/dir/dir2
+
+-----------------------------
+🍕 duplicate or backup dir (with rsync) use '--exclude' to ignore some folder/files
+
+> rsync -avP sourcefolder/. /<destinations-folder>
+> rsync -avP sourcefolder/. /<destinations-folder> --exclude /<some-dir> --exclude <some-files>
+
 -----------------------------
 🍕 move all * to other dir
+
 mv -v dir1/* ~/dir/dir2
+
 -----------------------------
 🍕 remove dir or intance
+
 rm -v dir1
 rm -rf dir1
 rm other.txt
@@ -208,63 +246,102 @@ rm -rf .git
 
 ----------------------------
 🎏 ~create dummy.dat on dir
+
 touch dummy{1..5}
 
 ---------------------------
 🎏 ~Common
+
 group
-less /etc/group
-usermod -aG <name-group> $USER
-newgrp <name-group>
+> less /etc/group
+> usermod -aG <name-group> $USER
+> newgrp <name-group>
 
 backup-mate-keybind
-dconf dump /org/mate/desktop/keybindings/ > dconf-mate-desktop-keybindings.conf
-dconf dump /org/mate/marco/window-keybindings/ > dconf-mate-marco-keybindings.conf
+> dconf dump /org/mate/desktop/keybindings/ > dconf-mate-desktop-keybindings.conf
+> dconf dump /org/mate/marco/window-keybindings/ > dconf-mate-marco-keybindings.conf
+
 restore-mate-keybind
-cat dconf-mate-desktop-keybindings.conf | dconf load /org/mate/desktop/keybindings/
-cat dconf-mate-marco-keybindings.conf | dconf load /org/mate/marco/window-keybindings/
+> cat dconf-mate-desktop-keybindings.conf | dconf load /org/mate/desktop/keybindings/
+> cat dconf-mate-marco-keybindings.conf | dconf load /org/mate/marco/window-keybindings/
 
-make softlink: ln -s TargetFilePath Reference
-cat /etc/*release*
-ls /etc/apt/sources.list.d
-sudo rm -i /etc/apt/souces.list.d/ppa_name.list
-htop
-lsblk
-lscpu
-lsusb
-lspci
-pwd
-ls -a
-ls -la
-ls -lia
-ls -ltr
-sudo nano /etc/pulse/daemon.conf 
-pulseaudio --kill
+make softlink: 
+> ln -s TargetFilePath Reference
 
-cweb for compresing some image-webp
-cwebp -q 10 src/images/pp.jpeg -o src/images/pp-10.webp
+other common command: 
+> cat /etc/*release*
+> ls /etc/apt/sources.list.d
+> sudo rm -i /etc/apt/souces.list.d/ppa_name.list
+> htop
+> lsblk
+> lscpu
+> lsusb
+> lspci
+> pwd
+> ls -a
+> ls -la
+> ls -lia
+> ls -ltr
+> sudo nano /etc/pulse/daemon.conf 
+> pulseaudio --kill
+
+CWEB image
+> cweb for compresing some image-webp
+> cwebp -q 10 src/images/pp.jpeg -o src/images/pp-10.webp
+
+----------------------------
+~MySQL
+
+dump database:
+> sudo mysqldump -u root -p --databases nama_db > backupOfNamaDB.sql
+
+restore database;
+> sudo mysql -u root -p < backupOfNamaDB.sql
 
 ----------------------------
 🎏 ~Network 
-lsof -i
-lsof -i :8080
-lsof -i :8080 | grep <PID>
-sudo lsof -i tcp:3000 
-ps aux | grep -i <option_app>
-kill -9 <PID>
-kill $(lsof -t -i:port)
-sudo grep psk= /etc/NetworkManager/system-connections/*
-systemctl list-unit-files '*mariadb*' '*mysql*'
-sudo systemctl disable mysql
-sudo update-rc.d apache2 disable
-systemctl disable postgresql
+
+> lsof -i
+
+> lsof -i :8080
+
+> lsof -i :8080 | grep PID
+
+> sudo lsof -i tcp:3000 
+
+> ps aux | grep -i option_app
+
+> kill -9 PID
+
+> kill $(lsof -t -i:port)
+
+> sudo grep psk= /etc/NetworkManager/system-connections/*
+
+> systemctl list-unit-files '*mariadb*' '*mysql*'
+
+> sudo systemctl disable mysql
+
+> sudo update-rc.d apache2 disable
+
+> systemctl disable postgresql
 
 -----------------------------
 🎏 ~Git command 
-rename: git branch -m master main
-git init
-git add .
-git commit -m "ayo!"
-git branch -M main
-git remote add origin http://somegitrepos.git
-git push -u origin main
+
+rename: 
+> git branch -m master main
+
+common-git command:
+> git init
+
+> git add .
+
+> git commit -m "ayo!" 
+
+> git branch -M main 
+
+> git remote add origin http://somegitrepos.git 
+
+> git push -u origin main
+
+
