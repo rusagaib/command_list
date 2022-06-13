@@ -339,8 +339,32 @@ restore database;
 -----------------------------
 🎏 ~Git command 
 
-rename: 
+show git config:
+> git config -l
+
+show all git branches:
+> git branch
+
+swith between branch:
+> git checkout name_branch_on_repo
+
+show different between local & remote repo:
+> git diff origin/name_main_or_branch
+
+show status git:
+> git status 
+
+rename branch: 
 > git branch -m master main
+
+git remove remote origin:
+> git remote remove origin
+
+change origin
+> git remote set-url origin https://github.com/user/another-repo
+
+change origin W/ ssh: 
+> git remote set-url origin git@github.com:user/repo-name.git 
 
 common-git command:
 > git init
@@ -354,5 +378,4 @@ common-git command:
 > git remote add origin http://somegitrepos.git 
 
 > git push -u origin main
-
 
