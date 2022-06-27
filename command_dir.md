@@ -296,6 +296,57 @@ Disk command status:
 > lsblk 
 > df -h
 
+Mount & unmount:
+> udiskctl mount -b /dev/<your-annotation-fdisk-w-num>
+> udiskctl unmount -b /dev/<your-annotation-fdisk-w-num>
+
+### Formating fdisk 
+
+#### 1. checking fdisk list
+> sudo fdisk -l
+
+#### 2. formating fdisk filesystem
+##### exp: sudo wipefs --all /dev/sdb
+> sudo wipefs --all /dev/usb-annotation-name
+
+#### 3. checking fdisk again 
+> sudo fdisk -l
+
+#### 4. creating fdisk filesystem
+##### exp: sudo cfdisk /dev/sdb
+> sudo cfdisk /dev/usb-annotation-name
+
+> select dos type
+
+> create new partition
+
+> makeit primary
+
+> select write -> 'yes'
+
+> select quit
+
+#### 5. formating partition to use
+##### exp: sudo mkfs.vfat -n 'plasdis' /dev/sdb1
+> sudo mkfs.vfat -n 'fdisk-lable' /dev/fdisk-annotation-name-with-anumber
+
+---
+### Creating usb bootable fdisk 
+
+#### 1. checking fdisk list
+sudo fdisk -l
+
+#### 2. creating usb bootable
+#### exp: sudo dd bs=4M if=Downloads/wtflinux.iso 0f=/dev/sdb status=progress && sync
+```
+sudo dd bs=4M if=<path-to-iso> of=/dev/<usb-annotation-name> status=progress && sync
+```
+
+---
+### Pacman-getsize:
+`pacman -Qi xfce4-terminal | grep -i size`
+
+
 CWEB image
 > cweb for compresing some image-webp
 > cwebp -q 10 src/images/pp.jpeg -o src/images/pp-10.webp
