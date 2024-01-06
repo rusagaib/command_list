@@ -54,6 +54,9 @@ make-new sess: tmux new -s <session-name>
 split-panes(VERTICL): C-a+%
 split-panes(HORIZON): C-a+"
 
+kill-session:
+tmux kill-session -t <session-number>
+
 -----------------------------
 🎏~ATOM
 
@@ -67,7 +70,17 @@ atom-close-allpane: ctrl-k and ctrl-w
 atom-split-panes (on-focus-tree): ctrl-k and left/right
 atom-move focus (panes): ctrl-k and ctrl-left/right
 
------------------------------
+------------------------------
+📦~NVIM
+:E -- use Explorer mode 
+in Explorer mode:
+D -- for delete 
+d -- create new dir 
+% -- create new file
+
+
+
+----------------------------
 📦~Python virtualenv
 
 python3 -m venv env
@@ -77,7 +90,30 @@ pip freeze > requirements.txt
 -----------------------------
 📦~Docker
 
-*ENV for pg
+Quickstart
+1. Docker Installation
+ubuntu:
+sudo apt-get install docker 
+
+arch:
+sudo pacman -S docker 
+
+arch-git:
+git clone https://aur.archlinux.org/docker-git.git
+sudo pacman -S base-devel
+cd docker-git/
+makepkg -sri
+
+2. Starting & enable docker service
+sudo systemctl start docker.service
+sudo systemctl enable docker.service
+
+3. Adding User to Docker group
+sudo usermod -aG docker $USER
+
+4. Finish
+
+*Docker-ENV-for pg
 > docker run -d \
 > -p port-to-bind:port \
 > --name name-image \
@@ -87,8 +123,7 @@ pip freeze > requirements.txt
 > -v $pwd/name-dir/init.sql:/docker-entrypoint-initdb.d/init.sqp \
 > postgres
 
-*ENV docker network for pg 
-
+*Docker-ENV-network for pg 
 docker run -d \
 -p 5432:5432 \
 --name todo-postgres \
@@ -99,54 +134,91 @@ docker run -d \
 --network todo \
 postgres
 
-*start docker container by images
+*Docker-ENV-for mysql 
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+docker run --name some-mysql -p 127.0.0.1:3307:3306 -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:latest
+
+ect:
+docker run --name warungApi-db -p 127.0.0.1:3307:3306 -e MYSQL_DATABASE=db_laravel_api -e MYSQL_USER=laravel -e MYSQL_PASSWORD=my_secret -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mariadb:10.6
+
+*Docker-Backup Mysql:
+docker exec ContinerID /usr/bin/mysqldump -u root --password=my-secret-pw DATABASE-NAME> backup.sql
+
+*Docker-Restore Mysql DB:
+cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
+
+*Docker-Test-Runing MySQL db:
+docker run --name some-mysql \
+-p 127.0.0.1:3307:3306 \
+-e MYSQL_DATABASE=laravel_data \
+-e MYSQL_USER=laravel \
+-e MYSQL_PASSWORD=my-secret-pw \
+-e MYSQL_ROOT_PASSWORD=my-secret-pw \
+-d mariadb:10.6 
+
+*Docker-start docker container by images
 docker run name-image
 
-*start docker container (detach/backgroud)
+*Docker-start docker container (detach/backgroud)
 docker run -d name-image
 
-*start docker container with binding port and (detach)
+*Docker-start docker container with binding port and (detach)
 docker run -d -p port-id-tobind:port-id name-image
 
-*start docker container with name,portbinding,detach
+*Docker-start docker container with name,portbinding,detach
 docker run -d -p port-id-tobind:port-id \
 --name init-container-name \
 name-image:w-optional-version
 
-*stop/restart running a docker container
+*Docker-stop/restart running a docker container
 docker stop container-id
 docker start container-id
 
-*show realtime logs on running container
+*Docker-show realtime logs on running container
 docker logs -f container-id 
 
-*print logs docker container
+*Docker-print Docker-logs docker container
 docker logs container-id
 docker logs container-name
 
-*look some docker container on running..
+*Docker-look some docker container on running..
 docker ps
 
-*look all logs/history run docker container
+*Docker-look all logs/history run docker container
 docker ps -a
 
-*look for images
+*Docker-look for images
 docker images
 
-*login to a docker container
+*Docker-look for images with grep:
+docker images | grep 'docker_image_name'
+
+*Docker-login to a docker container
+*Docker-exec
 docker exec -it container-name bash
 
-*download some images visit (https://hub.docker.com)
+*Docker-download some images visit (https://hub.docker.com)
 docker pull name-image
 
-*delete docker image
+*Docker-delete docker image or
+*Docker-remove docker image
 docker rmi name-image
 
-*delete docker container
+*Docker-delete docker container or
 docker rm container-id
 
-*show docker-container mem usange
+*Docker-remove images with grep:
+docker rmi $(docker images | grep 'docker_names')
+
+*Docker-show docker-container mem usange
 docker ps -q | xargs  docker stats --no-stream
+
+*Docker-tag Docker-Metadata:
+docker tag imagename imagename:v1.0
+
+*Docker-compose:
+docker-compose up --build -d
+docker-compose down 
 
 -----------------------------
 📦~Php env
@@ -208,6 +280,52 @@ reload-metro:r
 start-metro: npx react-native start
 start-emu: npx react-native run-android
 emu_conf: ctrl+m
+
+-----------------------------
+📦~Laravel
+*env log storage permission:
+sudo chmod -R 775 storage && sudo chmod -R ugo+rw storage
+
+*create new project:
+composer create-project laravel/laravel:^8.0 example-project
+composer create-project laravel/laravel:^9.0 example-project
+
+
+seeder: -- adding Model on ./database/seeder/DatabaseSeeder.php 
+then create command:
+
+User::create([
+   'name' => 'admin',
+   'email' => 'admin@example.com',
+   'password' => bcrypt('cyberadmin') 
+]);
+
+and run
+php artisan db:seed
+
+make new route-resource:
+php artisan make:controller NamaController --resource
+
+make new model & migration db:
+php artisan make:model -m NamaModel
+
+*make model & migration db advance: (-m migration, -c controller, -r resource-controller)
+php artisan make:model NamaModel -mc
+
+*add field or new column migration:
+php artisan make:migration AddNewColumToReferenceTable --table=tableName
+example:
+php artisan make:migration AddRoleToUsersTable --table=users
+
+migrate db:
+php artisan migrate:fresh
+
+migrate seed:
+php artisan migrate:refresh --seed
+
+clear-cache:
+php artisan route:clear
+php artisan config:clear
 
 -----------------------------
 🍕 make new dir  
@@ -272,7 +390,7 @@ restore-mate-keybind
 > cat dconf-mate-marco-keybindings.conf | dconf load /org/mate/marco/window-keybindings/
 
 make softlink: 
-> ln -s TargetFilePath Reference
+> ln -s SourcefilePath newsoftlinkPath
 
 other common command: 
 > cat /etc/*release*
@@ -288,8 +406,12 @@ other common command:
 > ls -la
 > ls -lia
 > ls -ltr
+> ls -tl | head -5
 > sudo nano /etc/pulse/daemon.conf 
 > pulseaudio --kill
+
+*Find-files with pattern:
+find . -iname '*name-file*'
 
 Disk command status:
 > sudo fdisk -l 
@@ -350,6 +472,20 @@ sudo dd bs=4M if=<path-to-iso> of=/dev/<usb-annotation-name> status=progress && 
 CWEB image
 > cweb for compresing some image-webp
 > cwebp -q 10 src/images/pp.jpeg -o src/images/pp-10.webp
+
+----------------------------
+### reset arch key (using usb-bootable):
+
+mkdir /mnt/arch
+mount /dev/sda1 /mnt/arch
+cd mnt/arch 
+ls 
+mount -t proc proc proc/
+mount -t sysfs sys sys/
+mount -o bind /dev dev/
+mount -t devpts pts dev/pts/
+chroot /mnt/arch /usr/bin/bash
+passwd <user_name> 
 
 ----------------------------
 ~MySQL
@@ -429,4 +565,21 @@ common-git command:
 > git remote add origin http://somegitrepos.git 
 
 > git push -u origin main
+
+#Remove from repo only
+#Remove a single file
+git rm --cached password.txt
+
+# Remove a single folder
+git rm --cached -rf .idea
+
+# Remove both from local & repo
+# Remove a single file
+git rm password.txt
+
+# Remove a single folder
+git rm -rf .idea
+
+
+
 
