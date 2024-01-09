@@ -524,6 +524,42 @@ restore database;
 > systemctl disable postgresql
 
 -----------------------------
+#### SSH Key generate
+
+1. 
+ssh-keygen -t ed25519 -C "nama_credential_atau_email"
+
+2.
+masukkan password
+
+3.
+eval "$(ssh-agent)"
+
+4.
+ssh-add ~/.ssh/nama_key
+
+5.
+ssh-copy -i ~/.ssh/nama_key.pub <nama_user@ipaddr>
+ssh-copy -i ~/.ssh/nama_key.pub <nama-domain>
+ssh-copy -i ~/.ssh/nama_key.pub -p <nomer-port> <nama_user@ipaddr> 
+
+6. 
+buat config di ~/.ssh
+
+7. isi konten ~/.ssh/config:
+Host nama_host_sebagai_tag 
+  Hostname <ip atau domain> 
+  IdentityFile ~/.ssh/nama_key
+  User <root atau username yg ada di server>
+  Port <nomer port opsional>
+
+8. 
+ssh nama_host_sebagai_tag
+
+9.
+finish
+
+-----------------------------
 🎏 ~Git command 
 
 show git config:
