@@ -349,6 +349,13 @@ cp -a dir1/. ~/dir/dir2
 > rsync -avP sourcefolder/. /<destinations-folder>
 > rsync -avP sourcefolder/. /<destinations-folder> --exclude /<some-dir> --exclude <some-files>
 
+over-ssh
+dowmload to lokal
+rsync -chavzP --stats user@remote.host:/path/to/copy /path/to/local/storage
+
+over-ssh lokal push ke remote
+rsync -av -e 'ssh -p 222' /home/user/lokal_dir user-remote@host-name:/home/host/destination
+
 -----------------------------
 🍕 move all * to other dir
 
