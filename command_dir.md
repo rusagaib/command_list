@@ -259,6 +259,7 @@ sudo rm -i /etc/apt/souces.list.d/ppa_name.list
 .tar.gz: tar -xzvf rebol.tar.gz
 .tar:
 .rar:
+.zip: zip -r data.zip data/ 
 .zip: unzip filename 
 .zip: unzip filename.zip -d /new-dir
 .iso:
