@@ -287,10 +287,26 @@ emu_conf: ctrl+m
 *env log storage permission:
 sudo chmod -R 775 storage && sudo chmod -R ugo+rw storage
 
+*basic permission
+sudo chown -R www-data.www-data /var/www/travellist/storage
+sudo chown -R www-data.www-data /var/www/travellist/bootstrap/cache
+
+sudo chown -R $USER:www-data storage
+sudo chown -R $USER:www-data bootstrap/cache
+
+sudo chown -R www-data:www-data /path/to/your/project/vendor
+sudo chown -R www-data:www-data /path/to/your/project/storage
+
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+
+sudo usermod -a -G www-data userName
+
 *create new project:
 composer create-project laravel/laravel:^8.0 example-project
 composer create-project laravel/laravel:^9.0 example-project
 
+https://lindevs.com/code-snippets/generate-pem-encoded-pkcs8-format-rsa-key-pair-using-php
 
 seeder: -- adding Model on ./database/seeder/DatabaseSeeder.php 
 then create command:
