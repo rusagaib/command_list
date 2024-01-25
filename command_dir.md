@@ -548,6 +548,12 @@ restore database;
 > systemctl disable postgresql
 
 -----------------------------
+#### NGINX Conf
+
+Access log:
+https://eddmann.com/posts/processing-apache-and-nginx-access-logs/
+
+-----------------------------
 #### SSH Key generate
 
 1. 
