@@ -303,6 +303,7 @@ chmod -R 775 bootstrap/cache
 sudo usermod -a -G www-data userName
 
 *create new project:
+composer create-project --prefer-dist laravel/laravel
 composer create-project laravel/laravel:^8.0 example-project
 composer create-project laravel/laravel:^9.0 example-project
 
