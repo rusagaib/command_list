@@ -345,6 +345,10 @@ clear-cache:
 php artisan route:clear
 php artisan config:clear
 
+dateformat:
+https://www.digitalocean.com/community/tutorials/easier-datetime-in-laravel-and-php-with-carbon
+https://www.php.net/manual/en/datetime.format.php
+
 -----------------------------
 🍕 make new dir  
 
