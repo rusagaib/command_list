@@ -688,7 +688,8 @@ Cmnd_Alias DISABLE_SU = /bin/su
 show users config:
 visudo
 
-
+wifi-connect direct
+https://itsfoss.com/connect-wifi-terminal-ubuntu/
 
 
 
