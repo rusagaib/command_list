@@ -661,7 +661,9 @@ change hostname
 hostnamectl set-hostname new-hostname
 
 add user
-useradd <USERNAME>
+useradd -m <USERNAME>
+adduser --create-home <USERNAME>
+adduser --home /home/<USERNAME> <USERNAME>
 
 edit/add password
 passwd <USERNAME>
