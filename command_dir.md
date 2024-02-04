@@ -655,4 +655,17 @@ git rm -rf .idea
 mount local data
 cd /mnt/c/Users/<windows.username>/Pictures
 
+📦~Server
+
+change hostname
+hostnamectl set-hostname new-hostname
+
+add user
+useradd <USERNAME>
+
+edit/add password
+passwd <USERNAME>
+
+add sudoer
+usermod -aG sudo USERNAME
 
