@@ -87,6 +87,10 @@ python3 -m venv env
 virtualenv env
 pip freeze > requirements.txt
 
+Make Random Secrets:
+import secrets
+print(secrets.token_urlsafe(12))
+
 -----------------------------
 📦~Docker
 
@@ -657,17 +661,34 @@ cd /mnt/c/Users/<windows.username>/Pictures
 
 📦~Server
 
-change hostname
+change hostname:
 hostnamectl set-hostname new-hostname
 
-add user
+add user:
 useradd -m <USERNAME>
 adduser --create-home <USERNAME>
 adduser --home /home/<USERNAME> <USERNAME>
 
-edit/add password
+remove user:
+deluser newuser
+deluser --remove-home newuser
+
+edit/add password:
 passwd <USERNAME>
 
-add sudoer
+add sudoer:
 usermod -aG sudo <USERNAME>
+
+disable su for USER:
+https://www.tecmint.com/disable-su-access-sudo-users/
+Cmnd_Alias DISABLE_SU = /bin/su
+%admin ALL=(ALL) ALL, !DISABLE_SU
+<USERNAME> ALL=(ALL) NOPASSWD: ALL, !DISABLE_SU
+
+show users config:
+visudo
+
+
+
+
 
