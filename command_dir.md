@@ -667,5 +667,5 @@ edit/add password
 passwd <USERNAME>
 
 add sudoer
-usermod -aG sudo USERNAME
+usermod -aG sudo <USERNAME>
 
