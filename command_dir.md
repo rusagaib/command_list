@@ -651,6 +651,8 @@ git rm password.txt
 # Remove a single folder
 git rm -rf .idea
 
-
+### wsl 
+mount local data
+cd /mnt/c/Users/<windows.username>/Pictures
 
 
