@@ -235,6 +235,9 @@ sudo apt install php7.4-xml -y
 sudo update-alternatives --config php
 dpkg -l | grep php | tee packages.txt
 
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-laravel-with-lemp-on-ubuntu-18-04
+https://www.digitalocean.com/community/tutorials/how-to-install-php-8-1-and-set-up-a-local-development-environment-on-ubuntu-22-04
+
 -----------------------------
 📦~Go-lang
 
