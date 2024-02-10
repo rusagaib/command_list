@@ -691,8 +691,43 @@ Cmnd_Alias DISABLE_SU = /bin/su
 show users config:
 visudo
 
-wifi-connect direct
+
+📦~Server static ip config on wlan
+
+AlwaysOnDisplay:
+/etc/systemd/logind.conf 
+#HandleLidSwitch=suspend -> HandleLidSwitch=ignore
+LidSwitchIgnoreInhibited=no 
+sudo service systemd-logind restart
+
+wifi-connect direct:
 https://itsfoss.com/connect-wifi-terminal-ubuntu/
+
+setting wifi static-ip on (/etc/netplan/50-cloud-init.yaml):
+1. reserve ip & mac on router settings..
+2. touch /etc/netplan/50-cloud-init.yaml
+3. copy:
+
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    <ETH-DRIVER>:
+      dhcp4: true
+      optional: true
+  wifis:
+    <WIFI-DRIVER>:
+      dhcp4: no
+      optional: true
+      addresses: [<IP-ADDRES>/<MASK>]
+      routes:
+        - to: default
+          via: <GATEWAY>
+      nameservers:
+        addresses: [1.1.1.1, 1.0.0.1]
+      access-points:
+        "<SSID>":
+          password: "<SSID-PASSWORD>"
 
 
 
