@@ -238,6 +238,9 @@ dpkg -l | grep php | tee packages.txt
 https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-laravel-with-lemp-on-ubuntu-18-04
 https://www.digitalocean.com/community/tutorials/how-to-install-php-8-1-and-set-up-a-local-development-environment-on-ubuntu-22-04
 
+Manage Multiple PHP version
+https://gist.github.com/michaelbutler/4a89bb23e2d30f1b0585b98d2b67cf55?permalink_comment_id=4133009
+
 -----------------------------
 📦~Go-lang
 
