@@ -420,6 +420,9 @@ linux   /boot/vmlinuz-linux root= ... log level=3 nowatchdog ...
 linux   /boot/vmlinuz-linux root= ... nouveau.blacklist=yes modprobe.blacklist=nouveau log level=3 ...
 5. save with Ctrl+x 
 
+Change backgroud login screen:
+/etc/lightdm/slick-greeter.conf -> background=/path/to/picture
+first cp picture to /usr/share/backgrouds
 
 Change interface
 TTY
