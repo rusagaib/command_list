@@ -409,6 +409,18 @@ touch dummy{1..5}
 ---------------------------
 🎏 ~Common
 
+📦~Driver Graphics
+
+nvidia:
+1. on grub menu press key 'e'
+2. find this:
+linux   /boot/vmlinuz-linux root= ... log level=3 nowatchdog ...
+3. add "nouveau.blacklist=yes modprobe.blacklist=nouveau" before log level
+4. it's should look like this:
+linux   /boot/vmlinuz-linux root= ... nouveau.blacklist=yes modprobe.blacklist=nouveau log level=3 ...
+5. save with Ctrl+x 
+
+
 Change interface
 TTY
 > ctrl+alt+F3
