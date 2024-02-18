@@ -550,6 +550,19 @@ dump database:
 restore database;
 > sudo mysql -u root -p < backupOfNamaDB.sql
 
+Installing mysql:
+sudo apt install mysql-server
+sudo mysql_secure_installation
+
+Installing mariadb:
+sudo apt install mariadb-server
+sudo mysql_secure_installation
+
+GRANT ALL ON database_name.* TO 'username'@'localhost_or_%_for_all_connection' IDENTIFIED BY 'password' WITH GRANT OPTION;
+
+show all user access: (root)
+SELECT user,host FROM mysql.user;
+
 ----------------------------
 🎏 ~Network 
 
