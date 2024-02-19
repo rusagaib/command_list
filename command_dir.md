@@ -690,8 +690,11 @@ git rm password.txt
 git rm -rf .idea
 
 ### wsl 
-mount local data
+mount local data:
 cd /mnt/c/Users/<windows.username>/Pictures
+access wsl dir:
+\\wsl$
+https://www.howtogeek.com/426749/how-to-access-your-linux-wsl-files-in-windows-10/
 
 📦~Server
 
