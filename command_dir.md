@@ -82,7 +82,7 @@ d -- create new dir
 ----------------------------
 ~Insomnia REST
 
-Insomnia REST v2023.5.8: https://github.com/Kong/insomnia/releases?q=2023.5.8&expanded=true
+[Insomnia REST v2023.5.8](https://github.com/Kong/insomnia/releases?q=2023.5.8&expanded=true)
 
 ----------------------------
 📦~Python virtualenv
