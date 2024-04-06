@@ -768,4 +768,7 @@ network:
           password: "<SSID-PASSWORD>"
 
 
+📦~Server adding new partition hardisk
 
+[Adding new partition HDD to server](https://linuxconfig.org/how-to-add-new-disk-to-existing-linux-system)
+[check hdd](https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux)
