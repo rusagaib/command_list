@@ -349,11 +349,20 @@ php artisan make:migration AddNewColumToReferenceTable --table=tableName
 example:
 php artisan make:migration AddRoleToUsersTable --table=users
 
-migrate db:
+migrate db: drop all table on db and run migrate (BE CAREFULL!!)
 php artisan migrate:fresh
 
-migrate seed:
+migrate db: rollback all listed migration and run migrate
+php artisan migrate:refresh
+
+migrate db spesifik:
+php artisan migrate --path=/database/migrations/fileName.php
+
+migrate refresh rollback and then run seeder:
 php artisan migrate:refresh --seed
+
+migrate seed spesifik:
+php artisan db:seed --class=/database/seeders/classNameTableSeeder.php
 
 clear-cache:
 php artisan route:clear
