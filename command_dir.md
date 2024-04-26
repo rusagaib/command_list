@@ -459,6 +459,9 @@ restore-mate-keybind
 make softlink: 
 > ln -s SourcefilePath newsoftlinkPath
 
+softlink win 64_32:
+> mklink /D C:\TempatDokumen D:\FolderAsli
+
 other common command: 
 > cat /etc/*release*
 > ls /etc/apt/sources.list.d
