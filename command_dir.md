@@ -717,6 +717,11 @@ access wsl dir:
 \\wsl$
 https://www.howtogeek.com/426749/how-to-access-your-linux-wsl-files-in-windows-10/
 
+### Wondows
+cd to directory:
+cd /d <to/path/of/dir>
+exp: cd /d D:/data/Pictures
+
 📦~Server
 
 change hostname:
