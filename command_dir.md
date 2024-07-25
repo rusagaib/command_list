@@ -789,6 +789,8 @@ network:
         "<SSID>":
           password: "<SSID-PASSWORD>"
 
+~Server check DNS Resolver
+In Ubuntu 18.04 and 20.04 you can use systemd-resolve --status. In newer versions use resolvectl status
 
 📦~Server adding new partition hardisk
 
