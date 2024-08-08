@@ -792,6 +792,9 @@ network:
 ~Server check DNS Resolver
 In Ubuntu 18.04 and 20.04 you can use systemd-resolve --status. In newer versions use resolvectl status
 
+~Server security sshd hardening
+[basic sshd service security](https://www.wikihow.life/Secure-an-Ubuntu-Server)
+
 📦~Server adding new partition hardisk
 
 [Adding new partition HDD to server](https://linuxconfig.org/how-to-add-new-disk-to-existing-linux-system)
