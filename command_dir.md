@@ -653,6 +653,22 @@ ssh nama_host_sebagai_tag
 9.
 finish
 
+#### SSH Key generate (Windows)
+
+1. show ssh-agent status:
+Get-Service -Name ssh-agent
+
+2. set ssh-agent startup:
+Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+
+3. start ssh-agent:
+Start-Service ssh-agent
+
+4. add identity:
+ssh-add /your/ssh/conf/path
+
+5. enter passprase
+
 -----------------------------
 🎏 ~Git command 
 
