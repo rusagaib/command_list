@@ -39,6 +39,7 @@ move-between panes: C-a+<arrow keys>
 move-to next window: C-a+n
 move-to prev window: C-a+p
 moving-awindow: C-a+C-shift+<arrow-keys> 
+move-window -a -t 3
 view-sess&window: C-a+w or C-a+s
 rename window: C-a+,
 new windows: C-a+c
