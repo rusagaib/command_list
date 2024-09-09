@@ -79,6 +79,59 @@ D -- for delete
 d -- create new dir 
 % -- create new file
 
+Install NVIM
+[nvim V0.9.5](https://github.com/neovim/neovim/releases/tag/v0.9.5)
+
+```sh
+wget https://github.com/neovim/neovim/releases/tag/v0.9.5
+tar xzvf nvim-linux64.tar.gz
+sudo mkdir -p /opt/nvim-linux64
+cp -r ./nvim-linux64/* /opt/nvim-linux64/
+sudo ln -s /opt/nvim-linux64/bin/nvim /usr/local/bin/nvim
+```
+
+Install Ubuntu Build Esential for Clang build and etc:
+
+```sh
+sudo apt update
+sudo apt install build-essential
+sudo apt install clang libclang-dev
+sudo apt install ripgrep
+sudo apt install wslu -- if using wsl
+sudo apt install xsel or sudo apt install xclip -- for clipboard
+```
+*in wsl*
+for wsl clipboard please to menu settings and add new paste key-shortcut eg: ctrl+shift+v
+
+Install Lazygit:
+[Instalation LazyGIT](https://github.com/jesseduffield/lazygit?tab=readme-ov-file#installation)
+
+Instalation Lazygit (Ubuntu):
+
+```sh
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+```
+
+Installing Node with NVM:
+
+```sh
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+nvm --version
+nvm install 22.6.0
+nvm alias default 22.6.0
+nvm list
+```
+Installing Rust:
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Install Go Lang:
+[GoLang](https://go.dev/doc/install)
 
 ----------------------------
 ~Insomnia REST
