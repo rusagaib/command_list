@@ -82,6 +82,76 @@
 
 ### 5. Finish 🔥
 
+### 6. Fix Intelephense diagnostic (optional)
+
+  Save on root directory on `./.vscode/settings.json`
+  
+  ```json
+  {
+    "intelephense.diagnostics.enable": false,
+    "intelephense.environment.phpVersion": "8.2",
+    "intelephense.files.maxSize": 5000000,
+    "intelephense.stubs": [
+      "apache",
+      "bcmath",
+      "bz2",
+      "calendar",
+      "Core",
+      "ctype",
+      "curl",
+      "date",
+      "dom",
+      "fileinfo",
+      "filter",
+      "ftp",
+      "gd",
+      "gettext",
+      "hash",
+      "iconv",
+      "imap",
+      "intl",
+      "json",
+      "ldap",
+      "libxml",
+      "mbstring",
+      "mcrypt",
+      "mysqli",
+      "openssl",
+      "pcntl",
+      "pcre",
+      "PDO",
+      "pdo_mysql",
+      "pdo_sqlite",
+      "Phar",
+      "posix",
+      "readline",
+      "Reflection",
+      "session",
+      "shmop",
+      "SimpleXML",
+      "soap",
+      "sockets",
+      "sodium",
+      "SPL",
+      "sqlite3",
+      "standard",
+      "superglobals",
+      "sysvmsg",
+      "sysvsem",
+      "sysvshm",
+      "tokenizer",
+      "xml",
+      "xmlreader",
+      "xmlwriter",
+      "yaml",
+      "zip",
+      "zlib",
+      "laravel"
+    ],
+    "php.executablePath": "/usr/bin/php"
+  }
+  ```
+
 ### Source 🍺
 - [10 VS Code Vim Tricks to Boost Your Productivity ⚡](https://dev.to/ansonh/10-vs-code-vim-tricks-to-boost-your-productivity-1b0n)
 
