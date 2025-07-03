@@ -285,6 +285,17 @@ docker-compose down
 -----------------------------
 📦~Php env
 
+php-env-wsl2:
+(setup env php7.4 or php8.2)
+sudo apt install -y php7.4 php7.4-cli php7.4-common php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip php7.4-mysql
+sudo apt install -y php8.2 php8.2-cli php8.2-common php8.2-mbstring php8.2-xml php8.2-curl php8.2-zip php8.2-mysql
+(set alternative init)
+sudo update-alternatives --install /usr/bin/php php /usr/bin/php7.4 74
+sudo update-alternatives --install /usr/bin/php php /usr/bin/php8.2 82
+(chose default use)
+sudo update-alternatives --config php
+
+php-etc:
 sudo add-apt-repository ppa:ondrej/php
 sudo apt install php7.4
 sudo apt install curl php-cli php-mbstring git unzip
